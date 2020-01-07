@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="112dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/registerUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lblRegister"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/usernameText_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_usernameText"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/passwordText_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_PasswordText"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/confirmPasswordText_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_ConfirmPasswordText"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/emailText_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_EmailText"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/contactNoText_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_ContactNoText"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/ageText_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_Age"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/addressText_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_AddressText"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/registerBtn_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lblSubmit" />
+
+    <Button
+        android:id="@+id/backBtn_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="backBtn"
+        android:text="@string/lblBack" />
+
+</LinearLayout>

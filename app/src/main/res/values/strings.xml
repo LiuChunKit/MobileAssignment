@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MobileAssignment</string>
+    <string name="lblEmail">Email</string>
+    <string name="lblPassword">Password</string>
+    <string name="loginBtn_mainPage">Login</string>
+    <string name="registerBtn_mainPage">SignUp</string>
+    <string name="termCondition">Terms &amp; Conditions</string>
+    <string name="forgetPass">Forget Password</string>
+
+    <string name="lblRegister">Register</string>
+    <string name="hint_usernameText">Username</string>
+    <string name="hint_EmailText">Email</string>
+    <string name="hint_PasswordText">Password</string>
+    <string name="hint_ConfirmPasswordText">Confirm Password</string>
+    <string name="hint_Age">Age</string>
+    <string name="hint_ContactNoText">Contact No (xxx-xxxxxxx)</string>
+    <string name="hint_AddressText">Address</string>
+
+    <string name="lblSubmit">Submit</string>
+    <string name="lblBack">Back</string>
+    <string name="lblLogin">Login</string>
+</resources>
