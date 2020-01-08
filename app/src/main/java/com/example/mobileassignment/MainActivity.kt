@@ -27,16 +27,16 @@ class MainActivity : AppCompatActivity() {
 
         val resetPasswordText = findViewById<TextView>(R.id.forgotPassword)
 
-        loginBtn.setOnClickListener(){
-
-            startActivity(Intent(this, LoginActivity::class.java))
+        loginBtn.setOnClickListener {
             finish()
+            startActivity(Intent(this, LoginActivity::class.java))
+
         }
 
-        registerBtn.setOnClickListener(){
-
-            startActivity(Intent(this, SignUpActivity::class.java))
+        registerBtn.setOnClickListener {
             finish()
+            startActivity(Intent(this, SignUpActivity::class.java))
+
         }
 
         resetPasswordText.setOnClickListener(){
@@ -44,17 +44,22 @@ class MainActivity : AppCompatActivity() {
             builder.setTitle("Forget Password")
             val view = layoutInflater.inflate(R.layout.dialog_forget_password, null)
             val username = view.findViewById<EditText>(R.id.username_resetPassword )
+
+
             builder.setView(view)
             builder.setPositiveButton("Reset", DialogInterface.OnClickListener{ _, _ ->
                 forgetPassword(username)
             } )
-            builder.setPositiveButton("Close", DialogInterface.OnClickListener{ _, _ ->
+            builder.setNegativeButton("Close", DialogInterface.OnClickListener{ _, _ ->
             } )
              builder.show()
         }
     }
 
     private fun forgetPassword(username: EditText) {
+
+        mAuth = FirebaseAuth.getInstance()
+
         if (username.text.toString().trim().isEmpty()) {
             return
         }
@@ -69,5 +74,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Email sent", Toast.LENGTH_SHORT).show()
                 }
         }
+
+
     }
 }

@@ -43,4 +43,20 @@
     <string name="lblPosition">Position</string>
     <string name="lblJoinDate">Joined Date</string>
     <string name="lblLeftDate">Left Date</string>
+
+    <!--for add job-->
+    <string name="addjobtitle">Add Job</string>
+
+    <string name="addjobPosition">Job Position</string>
+
+    <string name="addjobDescription">Job Description</string>
+
+    <string name="addjobsalary">Job Salary</string>
+
+    <string name="addjobrequirement">Job Requirements</string>
+
+    <string name="addbtn">Add</string>
+
+    <string name="backbtn">Back</string>
+    <string name="lblForgetPassword">forget password</string>
 </resources>

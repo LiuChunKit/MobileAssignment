@@ -88,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
 
         if (currentUser != null) {
             if (currentUser.isEmailVerified) {
-                startActivity(Intent(this, HomePage::class.java))
+                startActivity(Intent(this, addJobActivity::class.java))
                 finish()
             } else {
                 Toast.makeText(
