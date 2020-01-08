@@ -145,18 +145,16 @@ class addJobActivity : AppCompatActivity() {
 
         jobDatabase = FirebaseDatabase.getInstance().getReference()
 
-        val authListener =
             AuthStateListener { firebaseAuth ->
                 val firebaseUser = firebaseAuth.currentUser
                 if (firebaseUser != null) {
                     val userId = firebaseUser.uid
                     val userEmail = firebaseUser.email
-                    val userAddress = firebaseUser.
+                    val userAddress = firebaseUser
                 }
             }
 
         val newJobid = jobDatabase.push().key
-        val newUserID =
 
 
 
