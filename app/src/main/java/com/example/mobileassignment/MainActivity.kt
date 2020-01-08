@@ -1,12 +1,22 @@
 package com.example.mobileassignment
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.mobileassignment.signup.SignUpActivity
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.login_activity.*
 
 class MainActivity : AppCompatActivity() {
+
+    private var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         val loginBtn = findViewById<Button>(R.id.loginBtn_mainPage)
         val registerBtn = findViewById<Button>(R.id.registerBtn_mainPage)
+
+        val resetPasswordText = findViewById<TextView>(R.id.forgotPassword)
 
         loginBtn.setOnClickListener(){
 
@@ -25,6 +37,37 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent(this, SignUpActivity::class.java))
             finish()
+        }
+
+        resetPasswordText.setOnClickListener(){
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Forget Password")
+            val view = layoutInflater.inflate(R.layout.dialog_forget_password, null)
+            val username = view.findViewById<EditText>(R.id.username_resetPassword )
+            builder.setView(view)
+            builder.setPositiveButton("Reset", DialogInterface.OnClickListener{ _, _ ->
+                forgetPassword(username)
+            } )
+            builder.setPositiveButton("Close", DialogInterface.OnClickListener{ _, _ ->
+            } )
+             builder.show()
+        }
+    }
+
+    private fun forgetPassword(username: EditText) {
+        if (username.text.toString().trim().isEmpty()) {
+            return
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
+            return
+        }
+
+        mAuth.sendPasswordResetEmail(username.text.toString())
+            .addOnCompleteListener {  task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Email sent", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }

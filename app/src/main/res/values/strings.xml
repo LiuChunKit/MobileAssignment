@@ -16,7 +16,31 @@
     <string name="hint_ContactNoText">Contact No (xxx-xxxxxxx)</string>
     <string name="hint_AddressText">Address</string>
 
+    <string name="hint_companyName">Company Name</string>
+    <string name="hint_schoolName">School Name</string>
+
     <string name="lblSubmit">Submit</string>
     <string name="lblBack">Back</string>
     <string name="lblLogin">Login</string>
+    <string name="lblConfirm">Confirm</string>
+    <string name="lblContinue">Continue</string>
+    
+    <string-array name="fieldOfStudy">
+        <item>Accountance &amp; Finance</item>
+        <item>Internet Technology</item>
+        <item>Achitecture</item>
+        <item>Multimedia &amp; Broadcast</item>
+    </string-array>
+
+    <string name="lblEducation">Education</string>
+    <string name="lblSchoolName">School Name</string>
+    <string name="lblFieldOfStudy">Field of Study</string>
+    <string name="lblQualification">Qualification</string>
+    <string name="lblGraduateDate">Graduation Date (01-01-2020)</string>
+
+    <string name="lblExperience">Experience</string>
+    <string name="lblSpecialization">Specialization</string>
+    <string name="lblPosition">Position</string>
+    <string name="lblJoinDate">Joined Date</string>
+    <string name="lblLeftDate">Left Date</string>
 </resources>

@@ -1,3 +1,5 @@
 package com.example.mobileassignment.models
 
-data class WorkingExp ()
+import java.util.*
+
+data class WorkingExp (val companyId:String = "", val companyName: String = "", val specification: String = "", val jobPosition: String = "", val joinedDate: Date, val leftDate: Date)

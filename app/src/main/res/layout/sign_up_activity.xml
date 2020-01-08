@@ -1,86 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="112dp"
-    android:orientation="vertical">
+    android:layout_marginTop="112dp">
 
     <TextView
         android:id="@+id/registerUser"
-        android:layout_width="match_parent"
+        android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:text="@string/lblRegister"
         android:textAlignment="center"
         android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/usernameText_signUp"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="@string/hint_usernameText"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerUser" />
 
     <EditText
         android:id="@+id/passwordText_signUp"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/hint_PasswordText"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameText_signUp" />
 
     <EditText
         android:id="@+id/confirmPasswordText_signUp"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/hint_ConfirmPasswordText"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/emailText_signUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText_signUp" />
 
     <EditText
         android:id="@+id/emailText_signUp"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/hint_EmailText"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordText_signUp" />
 
     <EditText
         android:id="@+id/contactNoText_signUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginEnd="1dp"
         android:ems="10"
         android:hint="@string/hint_ContactNoText"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/ageText_signUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailText_signUp" />
 
     <EditText
         android:id="@+id/ageText_signUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="49dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="80dp"
         android:ems="10"
         android:hint="@string/hint_Age"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/contactNoText_signUp"
+        app:layout_constraintTop_toBottomOf="@+id/emailText_signUp" />
 
     <EditText
         android:id="@+id/addressText_signUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
         android:ems="10"
         android:hint="@string/hint_AddressText"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageText_signUp" />
 
     <Button
         android:id="@+id/registerBtn_signUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/lblSubmit" />
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/lblContinue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressText_signUp" />
 
     <Button
         android:id="@+id/backBtn_signUp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="32dp"
         android:onClick="backBtn"
-        android:text="@string/lblBack" />
+        android:text="@string/lblBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressText_signUp" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

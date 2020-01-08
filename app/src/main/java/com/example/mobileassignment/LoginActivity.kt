@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.login_activity.*
+import kotlinx.android.synthetic.main.sign_up_activity.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -36,7 +37,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun doLogin() {
-        if (emailText_login.text.toString().isEmpty()) {
+
+        mAuth = FirebaseAuth.getInstance()
+
+        if (emailText_login.text.toString().trim().isEmpty()) {
             emailText_login.error = "Please enter email"
             emailText_login.requestFocus()
             return
@@ -48,15 +52,18 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        if (passwordText_login.text.toString().isEmpty()) {
+        if (passwordText_login.text.toString().trim().isEmpty()) {
             passwordText_login.error = "Please enter password"
             passwordText_login.requestFocus()
             return
         }
 
+        val loginEmail = emailText_login.text.toString()
+        val loginPassword = passwordText_login.text.toString()
+
         mAuth.signInWithEmailAndPassword(
-            emailText_login.text.toString(),
-            passwordText_login.text.toString()
+            loginEmail,
+            loginPassword
         )
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) { // Sign in success, update UI with the signed-in user's information
@@ -64,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Sign In successful", Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else { // If sign in fails, display a message to the user.
+                    Toast.makeText(applicationContext, "Sign In failed", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
@@ -80,8 +88,8 @@ class LoginActivity : AppCompatActivity() {
 
         if (currentUser != null) {
             if (currentUser.isEmailVerified) {
-                finish()
                 startActivity(Intent(this, HomePage::class.java))
+                finish()
             } else {
                 Toast.makeText(
                     baseContext, "Please verify your email address.",

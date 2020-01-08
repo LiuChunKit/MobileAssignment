@@ -9,17 +9,21 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileassignment.LoginActivity
 import com.example.mobileassignment.MainActivity
 import com.example.mobileassignment.R
+import com.example.mobileassignment.models.Education
 import com.example.mobileassignment.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.sign_up_activity.*
+import kotlinx.android.synthetic.main.sign_up_education.*
 
 
 class SignUpActivity : AppCompatActivity() {
 
     private var mAuth = FirebaseAuth.getInstance()
     private var userDatabase = FirebaseDatabase.getInstance().getReference("User")
+    private var educationDatabase = FirebaseDatabase.getInstance().getReference("Education")
+//    private var workingExpDatabase = FirebaseDatabase.getInstance().getReference("Experience")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +32,55 @@ class SignUpActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         val registerBtn = findViewById<Button>(R.id.registerBtn_signUp)
+        val registerEducationBtn = findViewById<Button>(R.id.eduConfirmButton)
+        val registerExperienceBtn = findViewById<Button>(R.id.expSubmitButton)
+
         val backBtn = findViewById<Button>(R.id.backBtn_signUp)
 
         registerBtn.setOnClickListener {
             saveNewUser()
         }
 
+//        registerEducationBtn.setOnClickListener {
+//            saveUserEducation()
+//        }
+//
+//        registerExperienceBtn.setOnClickListener {
+//            saveUserExperience()
+//        }
+
         backBtn.setOnClickListener {
             backFunction()
         }
+    }
+
+    private fun saveUserExperience() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private fun saveUserEducation() {
+
+//        mAuth = FirebaseAuth.getInstance()
+//
+//        val schoolName = schoolNameText_edu.text.toString()
+//        val fieldOfStudy = fieldOfStudyText_edu.text.toString()
+//        val qualification = qualificationText_edu.text.toString()
+//        val graduateDate = graduateDateText_edu.text.toString()
+//
+//        val educationObject = Education(
+//            educationId,
+//            schoolName,
+//            fieldOfStudy,
+//            qualification,
+//            graduateDate
+//        )
+//
+//        educationDatabase.child(educationId!!).setValue(educationObject).addOnCompleteListener {
+//
+//            saveUserExperience()
+//        }
+
+
     }
 
     private fun saveNewUser() {
@@ -102,17 +146,8 @@ class SignUpActivity : AppCompatActivity() {
             return
         }
 
-//        val userId = mAuth.uid
-//        val userName = findViewById<EditText>(R.id.usernameText_signUp)
-//        val userPassword = findViewById<EditText>(R.id.passwordText_signUp)
-//        val userConfirmPassword = findViewById<EditText>(R.id.confirmPasswordText_signUp)
-//        val userEmail = findViewById<EditText>(R.id.emailText_signUp)
-//        val userContactNo = findViewById<EditText>(R.id.contactNoText_signUp)
-//        val userAge = findViewById<EditText>(R.id.ageText_signUp)
-//        val userAddress = findViewById<EditText>(R.id.addressText_signUp)
-
-
         val userName = usernameText_signUp.text.toString()
+        val userRole = "finder"
         val userPassword = passwordText_signUp.text.toString()
         val userConfirmPassword = confirmPasswordText_signUp.text.toString()
         val userEmail = emailText_signUp.text.toString()
@@ -130,6 +165,7 @@ class SignUpActivity : AppCompatActivity() {
                     val userId = mAuth!!.currentUser!!.uid
                     val userObject = User(
                         userId,
+                        userRole,
                         userName,
                         userPassword,
                         userConfirmPassword,
@@ -139,7 +175,21 @@ class SignUpActivity : AppCompatActivity() {
                         userAddress
                     )
 
-                    startActivity(Intent(this, LoginActivity::class.java))
+                    user?.sendEmailVerification()?.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            // Email sent.
+
+                            startActivity(Intent(this, LoginActivity::class.java))
+                            finish()
+                        } else {
+                            Toast.makeText(
+                                applicationContext,
+                                "Sign Up failed. Please try again",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
                     updateUI(user)
 
 
@@ -149,6 +199,8 @@ class SignUpActivity : AppCompatActivity() {
                             "Your register is successfully.",
                             Toast.LENGTH_SHORT
                         ).show()
+
+//                        saveUserEducation()
                     }
 
                 } else {
@@ -173,3 +225,29 @@ class SignUpActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
     }
 }
+
+
+
+
+//        DatePicker
+//        val schoolName = schoolNameText_edu.text.toString().trim()
+//        val qualification  = qualification_edu.onItemSelectedListener.toString()
+//
+//        graduationDate_edu.setOnClickListener() {
+//            val c: Calendar = Calendar.getInstance()
+//            val currentDay = c.get(Calendar.DAY_OF_MONTH)
+//            val currentMonth = c.get(Calendar.MONTH)
+//            val currentYear = c.get(Calendar.YEAR)
+//
+//            val dpd = DatePickerDialog(this,
+//                DatePickerDialog.OnDateSetListener
+//                { view, year, month, day ->
+//                    graduationDate_edu(day.toString() + "/" + (month + 1).toString() + "/" + year.toString())
+//
+//
+//                }, currentYear, currentMonth, currentDay
+//            )
+//            dpd.show()
+//        }
+
+
