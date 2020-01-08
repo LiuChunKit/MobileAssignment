@@ -15,5 +15,6 @@ class HomePage: AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
+        mAuth.signOut()
     }
 }

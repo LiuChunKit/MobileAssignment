@@ -1,11 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MobileAssignment</string>
     <string name="lblEmail">Email</string>
     <string name="lblPassword">Password</string>
     <string name="loginBtn_mainPage">Login</string>
     <string name="registerBtn_mainPage">SignUp</string>
     <string name="termCondition">Terms &amp; Conditions</string>
-    <string name="forgetPass">Forget Password</string>
 
     <string name="lblRegister">Register</string>
     <string name="hint_usernameText">Username</string>
@@ -19,6 +18,7 @@
     <string name="hint_companyName">Company Name</string>
     <string name="hint_schoolName">School Name</string>
 
+    <!-- regitration Button-->
     <string name="lblSubmit">Submit</string>
     <string name="lblBack">Back</string>
     <string name="lblLogin">Login</string>
@@ -32,17 +32,27 @@
         <item>Multimedia &amp; Broadcast</item>
     </string-array>
 
+    <!--education -->
     <string name="lblEducation">Education</string>
     <string name="lblSchoolName">School Name</string>
     <string name="lblFieldOfStudy">Field of Study</string>
     <string name="lblQualification">Qualification</string>
     <string name="lblGraduateDate">Graduation Date (01-01-2020)</string>
 
+    <!--experience -->
     <string name="lblExperience">Experience</string>
     <string name="lblSpecialization">Specialization</string>
     <string name="lblPosition">Position</string>
     <string name="lblJoinDate">Joined Date</string>
     <string name="lblLeftDate">Left Date</string>
+    <string name="lblNotice_exp" tools:ignore="StringEscaping">*You are able to skip this step if you doesn't have any working experience</string>
+
+    <!--reset password -->
+    <string name="lblForgetPassword">Forget Password</string>
+    <string name="hint_usernameResetPassword">Username / Email</string>
+    <string name="hint_currentPassword">Current password</string>
+    <string name="hint_newPassword">New password</string>
+
 
     <!--for add job-->
     <string name="addjobtitle">Add Job</string>
@@ -58,5 +68,4 @@
     <string name="addbtn">Add</string>
 
     <string name="backbtn">Back</string>
-    <string name="lblForgetPassword">forget password</string>
 </resources>

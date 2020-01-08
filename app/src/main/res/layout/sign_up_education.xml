@@ -9,11 +9,9 @@
 
     <EditText
         android:id="@+id/schoolNameText_edu"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="@string/hint_schoolName"
         android:inputType="textPersonName"
@@ -26,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="110dp"
         android:text="@string/lblEducation"
         android:textSize="32sp"
@@ -38,10 +36,12 @@
         android:id="@+id/eduConfirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="100dp"
         android:text="@string/lblContinue"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eduBackButton"
         app:layout_constraintTop_toBottomOf="@+id/graduateDateText_edu" />
 
     <Button
@@ -50,13 +50,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="45dp"
+        android:layout_marginEnd="25dp"
         android:text="@string/lblBack"
+        app:layout_constraintEnd_toStartOf="@+id/eduConfirmButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/graduateDateText_edu" />
 
     <EditText
         android:id="@+id/fieldOfStudyText_edu"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
@@ -68,7 +70,7 @@
 
     <EditText
         android:id="@+id/qualificationText_edu"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
@@ -80,7 +82,7 @@
 
     <EditText
         android:id="@+id/graduateDateText_edu"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"

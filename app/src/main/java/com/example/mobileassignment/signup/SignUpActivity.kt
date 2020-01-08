@@ -22,7 +22,6 @@ class SignUpActivity : AppCompatActivity() {
 
     private var mAuth = FirebaseAuth.getInstance()
     private var userDatabase = FirebaseDatabase.getInstance().getReference("User")
-    private var educationDatabase = FirebaseDatabase.getInstance().getReference("Education")
 //    private var workingExpDatabase = FirebaseDatabase.getInstance().getReference("Experience")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,55 +31,15 @@ class SignUpActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         val registerBtn = findViewById<Button>(R.id.registerBtn_signUp)
-        val registerEducationBtn = findViewById<Button>(R.id.eduConfirmButton)
-        val registerExperienceBtn = findViewById<Button>(R.id.expSubmitButton)
 
         val backBtn = findViewById<Button>(R.id.backBtn_signUp)
 
         registerBtn.setOnClickListener {
             saveNewUser()
         }
-
-//        registerEducationBtn.setOnClickListener {
-//            saveUserEducation()
-//        }
-//
-//        registerExperienceBtn.setOnClickListener {
-//            saveUserExperience()
-//        }
-
         backBtn.setOnClickListener {
             backFunction()
         }
-    }
-
-    private fun saveUserExperience() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    private fun saveUserEducation() {
-
-//        mAuth = FirebaseAuth.getInstance()
-//
-//        val schoolName = schoolNameText_edu.text.toString()
-//        val fieldOfStudy = fieldOfStudyText_edu.text.toString()
-//        val qualification = qualificationText_edu.text.toString()
-//        val graduateDate = graduateDateText_edu.text.toString()
-//
-//        val educationObject = Education(
-//            educationId,
-//            schoolName,
-//            fieldOfStudy,
-//            qualification,
-//            graduateDate
-//        )
-//
-//        educationDatabase.child(educationId!!).setValue(educationObject).addOnCompleteListener {
-//
-//            saveUserExperience()
-//        }
-
-
     }
 
     private fun saveNewUser() {
@@ -149,7 +108,6 @@ class SignUpActivity : AppCompatActivity() {
         val userName = usernameText_signUp.text.toString()
         val userRole = "finder"
         val userPassword = passwordText_signUp.text.toString()
-        val userConfirmPassword = confirmPasswordText_signUp.text.toString()
         val userEmail = emailText_signUp.text.toString()
         val userContactNo = contactNoText_signUp.text.toString()
         val userAge = ageText_signUp.text.toString().toInt()
@@ -168,7 +126,6 @@ class SignUpActivity : AppCompatActivity() {
                         userRole,
                         userName,
                         userPassword,
-                        userConfirmPassword,
                         userEmail,
                         userContactNo,
                         userAge,
@@ -192,15 +149,12 @@ class SignUpActivity : AppCompatActivity() {
 
                     updateUI(user)
 
-
                     userDatabase.child(userId!!).setValue(userObject).addOnCompleteListener {
                         Toast.makeText(
                             applicationContext,
                             "Your register is successfully.",
                             Toast.LENGTH_SHORT
                         ).show()
-
-//                        saveUserEducation()
                     }
 
                 } else {
@@ -208,12 +162,9 @@ class SignUpActivity : AppCompatActivity() {
                         baseContext, "Sign Up failed. Please try again.",
                         Toast.LENGTH_SHORT
                     ).show()
+
                     updateUI(null)
-
-
                 }
-
-
             }
     }
 
@@ -225,8 +176,6 @@ class SignUpActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
     }
 }
-
-
 
 
 //        DatePicker

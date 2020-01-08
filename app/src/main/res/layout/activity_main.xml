@@ -11,7 +11,7 @@
         android:layout_width="109dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
-        android:text="@string/forgetPass"
+        android:text="@string/lblForgetPassword"
         android:textColor="#3F51B5"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
